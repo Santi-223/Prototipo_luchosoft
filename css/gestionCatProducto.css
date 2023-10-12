@@ -1,0 +1,284 @@
+.input1 input{
+  width: 300px;
+  height: 50px;
+  margin-top: 10px;
+}
+.Derecha{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+
+
+.titulo{
+  text-align: center;
+  color: #000;
+}
+
+
+.invalid{
+  border:  1px solid #E12424;
+  box-shadow: 0 0 1px red;
+  outline: none;
+ }
+ .error{
+   color: #E12424;
+   display: block;
+   font-size: 15px;
+ 
+ }
+ .label {
+  display: block; /* Hace que el label sea un elemento en bloque para que aparezca por encima del input */
+  margin-bottom: 5px; /* Agrega un margen inferior para separar el label del input */
+}
+
+.input1{
+  display: flex;
+ 
+  
+
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contenido2{
+  border-radius: 3px;
+  border: 1px solid #b9b9b9;
+  transform: translateX(200px);
+  margin-right: 30%;
+  height: 550px;
+  width: 50%;
+  
+  background-color: #f8f8f8;
+  
+}
+
+.cajaBotones {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.cajaBotones button {
+  padding: 10px 40px;
+  /* Ajusta el padding para hacer los botones más largos */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 25%;
+  /* Ajusta el ancho de los botones */
+}
+
+#guardar {
+  background-color: #722F37;
+  color: white;
+  padding: 10px;
+  margin-right: 40px; /*--margin-right en el primer botón para dar espacio entre los botones. Esto solo afectará el margen derecho del primer botón, creando espacio entre ellos.-*/
+}
+
+#cancelar {
+  background-color: #E12424;
+  color: white;
+  padding: 10px;
+}
+
+/*---------*/
+
+td i{
+  cursor: pointer;
+}
+
+.contForms {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+ 
+}
+
+.iconosRojos {
+  color: #E12424;
+}
+
+.iconosMorados {
+  color: #722F37;
+}
+
+input::placeholder {
+  padding-left: 8px;
+}
+
+input {
+  border-radius: 3px;
+  border: 1px solid #6d6d6d;
+}
+
+.input1 input {
+  width: 300px;
+  height: 50px;
+}
+
+.input1 select {
+  width: 300px;
+  height: 50px;
+}
+
+.input1 i {
+  font-size: 20px;
+}
+
+.parrafoGris {
+  color: gray;
+}
+
+.añadirImagen {
+  background-color: #e6e6e6;
+  height: 120px;
+  width: 200px;
+  border-radius: 3px;
+}
+
+.añadirImagen #imgPerfil {
+  text-align: center;
+}
+
+.contFormsAbajo {
+  margin-left: 80px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#iconoEditar {
+  text-align: end;
+  margin-bottom: -28px;
+}
+
+.btnSinFondo {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#imgPerfil {
+  border-radius: 3px;
+}
+
+
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+
+/*----------------------------------------------------------------*/
+
+.contForms{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 20%; 
+  flex-direction: column;
+  height: 50%;
+  width: 40%;
+}
+
+.iconosRojos{
+  color: #E12424;
+}
+
+.iconosMorados{
+  color: #722F37;
+}
+
+input::placeholder {
+  padding-left: 8px;
+}
+
+input{
+  border-radius: 3px;
+  border: 1px solid #6d6d6d;
+}
+
+.input1 input{
+  width: 300px;
+  height: 50px;
+}
+
+.input2 input{
+
+  width: 300px;
+  height: 50px;
+  flex-direction: column;
+}
+
+.inputCantidad{
+  margin-left: 24vh;
+}
+
+.inputCantidad input{
+  width: 120vh;
+  height: 50px;
+}
+
+.input1 i{
+  font-size: 20px;
+}
+
+.parrafoGris{
+  color: gray;
+}
+
+.añadirImagen{
+  background-color: #6d6d6d;
+  height: 120px;
+  width: 200px;
+  border-radius: 3px;
+}
+
+.añadirImagen #imgPerfil{
+  text-align: center;
+}
+
+.contFormsAbajo{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+#iconoEditar{
+  text-align: end;
+  margin-bottom: -28px;
+}
+
+.btnSinFondo {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#imgPerfil{
+  border-radius: 3px;
+}
+
+#tablaInsumos td, #tablaInsumos th{
+  text-align: center;
+}
+
+
+.fa-solid{
+  cursor: pointer;
+}
+
+.fas{
+  cursor: pointer;
+}
+
