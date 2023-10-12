@@ -1,66 +1,55 @@
-.input1 input{
+.input1 input {
   width: 300px;
   height: 50px;
   margin-top: 10px;
 }
-.Derecha{
+
+.Derecha {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start; /* Cambiado a flex-start para alinear a la izquierda */
   flex-direction: column;
 }
 
 
 
-.titulo{
+
+.titulo {
   text-align: center;
   color: #000;
 }
 
 
-.invalid{
-  border:  1px solid #E12424;
+.invalid {
+  border: 1px solid #E12424;
   box-shadow: 0 0 1px red;
   outline: none;
- }
- .error{
-   color: #E12424;
-   display: block;
-   font-size: 15px;
- 
- }
- .label {
-  display: block; /* Hace que el label sea un elemento en bloque para que aparezca por encima del input */
-  margin-bottom: 5px; /* Agrega un margen inferior para separar el label del input */
 }
 
-.input1{
-  display: flex;
- 
-  
+.error {
+  color: #E12424;
+  display: block;
+  font-size: 15px;
 
-  align-items: center;
-  text-align: center;
-  margin-bottom: 20px;
 }
 
-.contenido2{
+
+.contenido2 {
   border-radius: 3px;
   border: 1px solid #b9b9b9;
   transform: translateX(200px);
   margin-right: 30%;
   height: 550px;
   width: 50%;
-  
+
   background-color: #f8f8f8;
-  
+
 }
 
 .cajaBotones {
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  
+
 }
 
 .cajaBotones button {
@@ -77,7 +66,8 @@
   background-color: #722F37;
   color: white;
   padding: 10px;
-  margin-right: 40px; /*--margin-right en el primer botón para dar espacio entre los botones. Esto solo afectará el margen derecho del primer botón, creando espacio entre ellos.-*/
+  margin-right: 40px;
+  /*--margin-right en el primer botón para dar espacio entre los botones. Esto solo afectará el margen derecho del primer botón, creando espacio entre ellos.-*/
 }
 
 #cancelar {
@@ -88,7 +78,7 @@
 
 /*---------*/
 
-td i{
+td i {
   cursor: pointer;
 }
 
@@ -96,7 +86,7 @@ td i{
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
- 
+
 }
 
 .iconosRojos {
@@ -181,21 +171,21 @@ input {
 
 /*----------------------------------------------------------------*/
 
-.contForms{
+.contForms {
   margin-top: 40px;
   display: flex;
   justify-content: space-evenly;
-  margin-left: 20%; 
+  margin-left: 20%;
   flex-direction: column;
   height: 50%;
   width: 40%;
 }
 
-.iconosRojos{
+.iconosRojos {
   color: #E12424;
 }
 
-.iconosMorados{
+.iconosMorados {
   color: #722F37;
 }
 
@@ -203,58 +193,58 @@ input::placeholder {
   padding-left: 8px;
 }
 
-input{
+input {
   border-radius: 3px;
   border: 1px solid #6d6d6d;
 }
 
-.input1 input{
+.input1 input {
   width: 300px;
   height: 50px;
 }
 
-.input2 input{
+.input2 input {
 
   width: 300px;
   height: 50px;
   flex-direction: column;
 }
 
-.inputCantidad{
+.inputCantidad {
   margin-left: 24vh;
 }
 
-.inputCantidad input{
+.inputCantidad input {
   width: 120vh;
   height: 50px;
 }
 
-.input1 i{
+.input1 i {
   font-size: 20px;
 }
 
-.parrafoGris{
+.parrafoGris {
   color: gray;
 }
 
-.añadirImagen{
+.añadirImagen {
   background-color: #6d6d6d;
   height: 120px;
   width: 200px;
   border-radius: 3px;
 }
 
-.añadirImagen #imgPerfil{
+.añadirImagen #imgPerfil {
   text-align: center;
 }
 
-.contFormsAbajo{
+.contFormsAbajo {
   display: flex;
   justify-content: space-around;
   flex-direction: column;
 }
 
-#iconoEditar{
+#iconoEditar {
   text-align: end;
   margin-bottom: -28px;
 }
@@ -265,20 +255,20 @@ input{
   box-shadow: none;
 }
 
-#imgPerfil{
+#imgPerfil {
   border-radius: 3px;
 }
 
-#tablaInsumos td, #tablaInsumos th{
+#tablaInsumos td,
+#tablaInsumos th {
   text-align: center;
 }
 
 
-.fa-solid{
+.fa-solid {
   cursor: pointer;
 }
 
-.fas{
+.fas {
   cursor: pointer;
 }
-

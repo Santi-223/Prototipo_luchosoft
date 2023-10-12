@@ -13,7 +13,7 @@ const listarUsuarios = async (busqueda) => {
         alert(busqueda)
         urlAPI += `?id_usuario=${encodeURIComponent(busqueda)}`;
     }
-   
+
     //url: Es la url de la api.
     //Al desplegarla en el servidor colocar la api del servidor
     fetch(urlAPI, {
@@ -29,7 +29,7 @@ const listarUsuarios = async (busqueda) => {
             table.clear().draw();
 
             datos =
-               listarUsuarios.map(function (usuario) {//Recorrer el array
+                listarUsuarios.map(function (usuario) {//Recorrer el array
                     let estado = ""
 
                     if (usuario.estado_usuario == false) {
@@ -46,7 +46,7 @@ const listarUsuarios = async (busqueda) => {
                     respuesta += `<tr><td>${usuario.id_usuario}</td>` +
                         `<td><img src="${usuario.imagen_usuario}" height="100px" width="100px"></td>` +
                         `<td>${usuario.nombre_usuario}</td>` +
-                        `<td>${usuario.direccion_usuario}</td>`+
+                        `<td>${usuario.direccion_usuario}</td>` +
                         `<td>${usuario.telefono_usuario}</td>` +
                         `<td>${usuario.correo_usuario}</td>` +
 
@@ -113,7 +113,7 @@ function consultarUsuario(busqueda) {
     })
         .then((resp) => resp.json())
         .then(function (data) {
-            
+
             let usuario = data.usuario[0]; // Suponiendo que obtienes un solo cliente
 
             // Llenar los campos del formulario con los datos del cliente
@@ -132,53 +132,103 @@ function consultarUsuario(busqueda) {
 }
 
 function validarCamposModificar() {
-    // Obtén los valores de los campos de entrada
-    let id_usuario = document.getElementById('cedula').value;
-    let nombre_usuario = document.getElementById('nombre').value;
-    let telefono_usuario = document.getElementById('telefono').value;
-    let direccion_usuario = document.getElementById('direccion').value;
-    let correo_usuario = document.getElementById('correo').value;
-    let imagen_usuario = document.getElementById('imagen_usuario').value;
+    var cedula = document.getElementById("cedula").value;
+    var nombre = document.getElementById("nombre").value;
+    var telefono = document.getElementById("telefono").value;
+    var direccion = document.getElementById("direccion").value;
+    var correo = document.getElementById("correo").value;
 
+    var mensajeError = "";
 
-    // Verifica si alguno de los campos está vacío o no cumple con tus criterios de validación
-    if ( id_usuario ===""||nombre_usuario === "" || telefono_usuario === "" || direccion_usuario === "" || imagen_usuario === ""||correo_usuario==="" ) {
-        // Utiliza SweetAlert para mostrar una alerta de error
+    if (cedula === "") {
+        mensajeError += "El campo Cedula es obligatorio.<br>";
+    }
+
+    if (nombre === "") {
+        mensajeError += "El campo Nombre es obligatorio.<br>";
+    }
+
+    if (telefono === "") {
+        mensajeError += "El campo Teléfono es obligatorio.<br>";
+    }
+
+    if (direccion === "") {
+        mensajeError += "El campo Dirección es obligatorio.<br>";
+    }
+
+    if (correo === "") {
+        mensajeError += "El campo Correo es obligatorio.<br>";
+    } else if (!validarFormatoCorreo(correo)) {
+        mensajeError += "El formato del correo electrónico no es válido.<br>";
+    }
+
+    if (mensajeError !== "") {
+        // Mostrar una alerta de error con SweetAlert2
         Swal.fire({
             icon: 'error',
-            title: 'Error',
-            text: 'Por favor, completa todos los campos correctamente.',
+            title: 'Oops...',
+            html: mensajeError,
         });
     } else {
-        // Todos los campos son válidos, llama a la función.
         actualizarUsuario();
     }
 }
 
-function validarCamposAgregar(){
-    // Obtén los valores de los campos de entrada
-    let id_usuario= document.getElementById('cedula').value;
-    let imagen_usuario = document.getElementById('imagen_usuario').value;
-    let nombre_usuario = document.getElementById('nombre').value;
-    let telefono_usuario = document.getElementById('telefono').value;
-    let direccion_usuario = document.getElementById('direccion').value;
-    let correo_usuario = document.getElementById('correo').value;
+function validarCamposAgregar() {
+    var cedula = document.getElementById("cedula").value;
+    var nombre = document.getElementById("nombre").value;
+    var telefono = document.getElementById("telefono").value;
+    var direccion = document.getElementById("direccion").value;
+    var password = document.getElementById("password").value;
+    var correo = document.getElementById("correo").value;
 
+    var mensajeError = "";
 
+    if (cedula === "") {
+        mensajeError += "El campo Cedula es obligatorio.<br>";
+    }
 
+    if (nombre === "") {
+        mensajeError += "El campo Nombre es obligatorio.<br>";
+    }
 
-    // Verifica si alguno de los campos está vacío o no cumple con tus criterios de validación
-    if ( id_usuario===""||imagen_usuario === "0" || nombre_usuario === "0" || telefono_usuario === "0"|| direccion_usuario==="0"||correo_usuario==="") {
-        // Utiliza SweetAlert para mostrar una alerta de error
+    if (telefono === "") {
+        mensajeError += "El campo Teléfono es obligatorio.<br>";
+    }
+
+    if (direccion === "") {
+        mensajeError += "El campo Dirección es obligatorio.<br>";
+    }
+
+    if (password.length < 8) {
+        mensajeError += "La contraseña debe tener al menos 8 caracteres.<br>";
+    }
+
+    if (password.length > 20) {
+        mensajeError += "La contraseña debe tener maximo 20 caracteres.<br>";
+    }
+
+    if (correo === "") {
+        mensajeError += "El campo Correo es obligatorio.<br>";
+    } else if (!validarFormatoCorreo(correo)) {
+        mensajeError += "El formato del correo electrónico no es válido.<br>";
+    }
+
+    if (mensajeError !== "") {
+        // Mostrar una alerta de error con SweetAlert2
         Swal.fire({
             icon: 'error',
-            title: 'Error',
-            text: 'Por favor, completa todos los campos correctamente.',
+            title: 'Oops...',
+            html: mensajeError,
         });
     } else {
-        // Todos los campos son válidos, llama a la función agregarCliente
         registrarUsuario();
     }
+}
+
+function validarFormatoCorreo(correo) {
+    var formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return formatoCorreo.test(correo);
 }
 
 const registrarUsuario = async () => {
@@ -196,10 +246,10 @@ const registrarUsuario = async () => {
         nombre_usuario: nombre_usuario,
         telefono_usuario: telefono_usuario,
         direccion_usuario: direccion_usuario,
-        correo_usuario:correo_usuario
+        correo_usuario: correo_usuario
     }
 
-    let urlAPI=url
+    let urlAPI = url
 
     fetch(urlAPI, {
         method: 'POST',
@@ -211,7 +261,7 @@ const registrarUsuario = async () => {
         .then(json => {
             //alert(json.msg)//Mensaje que retorna la API
             console.log(json)
-            if (json.msg=="Inserción exitosa") {
+            if (json.msg == "Inserción exitosa") {
                 Swal.fire({
                     title: json.msg,
                     icon: 'success',
@@ -223,7 +273,7 @@ const registrarUsuario = async () => {
                         window.location.href = 'gestionUsuario.html'; // Redireccionar después del clic en OK
                     }
                 });
-            }else{
+            } else {
                 Swal.fire({
                     title: json.msg,
                     icon: 'error',
@@ -250,12 +300,12 @@ const actualizarUsuario = async () => {
 
 
     let usuario = {
-        id_usuario:id_usuario,
-        nombre_usuario:nombre_usuario,
+        id_usuario: id_usuario,
+        nombre_usuario: nombre_usuario,
         imagen_usuario: imagen_usuario,
         telefono_usuario: telefono_usuario,
         direccion_usuario: direccion_usuario,
-        correo_usuario:correo_usuario
+        correo_usuario: correo_usuario
     }
 
     fetch(url, {
@@ -274,17 +324,16 @@ const actualizarUsuario = async () => {
             }).then((result) => {
                 if (result.isConfirmed) {
                     // El usuario hizo clic en "OK"
-                    window.location.href='gestionUsuario.html';
-                
+                    window.location.href = 'gestionUsuario.html';
                 }
             });
         })
 }
 
-function cargarImagen(){
+function cargarImagen() {
     let src = document.getElementById('imagen_usuario').value
 
-    if (src === ""){
+    if (src === "") {
     }
 
     document.getElementById('imagen_usuario').src = src
@@ -301,7 +350,7 @@ const eliminarUsuario = async (id_usuario) => {
         .then(json => {
             //alert(json.msg)//Mensaje que retorna la API
             console.log(json)
-            if (json.msg=="La eliminación se efectuó exitosamente") {
+            if (json.msg == "La eliminación se efectuó exitosamente") {
                 Swal.fire({
                     title: json.msg,
                     icon: 'success',
@@ -310,10 +359,10 @@ const eliminarUsuario = async (id_usuario) => {
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // El usuario hizo clic en "OK"
-                        window.location.href ='gestionUsuario.html'; // Redireccionar después del clic en OK
+                        window.location.href = 'gestionUsuario.html'; // Redireccionar después del clic en OK
                     }
                 });
-            }else{
+            } else {
                 Swal.fire({
                     title: json.msg,
                     icon: 'error',

@@ -63,6 +63,14 @@ function validarActualizarContraseña() {
       title: 'Error',
       text: 'La contraseña nueva debe tener al menos 8 caracteres.',
     });
+  }
+  else if (contrasenaNueva.length > 20) {
+    // Verifica si la contraseña nueva tiene al maximo 20 caracteres
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'La contraseña nueva debe tener maximo 20 caracteres.',
+    });
   } else if (contrasenaNueva !== confirmarContrasena) {
     // Verifica si la contraseña nueva y la confirmación son diferentes
     Swal.fire({
